@@ -1,0 +1,30 @@
+Da capire:
+
+Cos'è nella pratica?
+P - Transform DPD (Days past due)
+M - Masking categories
+A - Transform amount
+D - Transform date
+T - Unspecified Transform
+L - Unspecified Transform
+
+Come mai le info statiche in train person si ripetono? Evoluzione temporale forse
+
+
+
+
+STABILITA' DEL MODELLO:
+- non cercano un modello perfetto ma stabile. Sara' necessario capire come validare i modelli in funzione di questo. 
+Non sara' il modello migliore a essere scelto ma il + stabile.
+Fonte: https://www.kaggle.com/competitions/home-credit-credit-risk-model-stability/discussion/475118
+
+FEATURE ENGINEERING FROM PREVIOUS COMPETITIONS:
+
+- Bureau: https://www.kaggle.com/competitions/home-credit-default-risk/discussion/57750
+
+GENERAL FEATURE:
+
+- https://www.kaggle.com/competitions/home-credit-default-risk/discussion/57912
+- primo notebook della scorsa competizione: https://www.kaggle.com/competitions/home-credit-default-risk/discussion/64821
+
+Forse FeatureTools package puo' essere utile

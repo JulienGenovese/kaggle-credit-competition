@@ -1,0 +1,37 @@
+
+Fonte: https://www.kaggle.com/competitions/home-credit-default-risk/data
+
+*_bureau:
+ All client's previous credits provided by other financial institutions
+that were reported to Credit Bureau (for clients who have a loan in our sample).
+For every loan in our sample, there are as many rows as number of credits the client had in Credit Bureau before the application date.
+
+https://www.kaggle.com/competitions/home-credit-default-risk/discussion/57746
+
+----------------------------------------
+
+*_applprev: 
+All previous applications for Home Credit loans of clients who have loans in our sample.
+There is one row for each previous application related to loans in our data sample
+
+----------------------------------------
+
+_debitcard: (MAYBE!!!!)
+Monthly balance snapshots of previous credit cards that the applicant has with Home Credit.
+This table has one row for each month of history of every previous credit in Home Credit
+ (consumer credit and cash loans) related to loans in our sample – i.e. the table has (#loans in sample * # of relative previous credit cards * # of months where we have some history observable for the previous credit card) rows.
+
+----------------------------------------
+
+Tax_registry:
+Una tax registry, o "registro fiscale", è un archivio ufficiale tenuto da un'autorità 
+governativa o fiscale in cui vengono registrate informazioni relative alle tasse 
+pagate dai contribuenti. Questo registro può includere informazioni come i nomi
+dei contribuenti, i loro redditi, le tasse pagate, 
+le detrazioni fiscali e altre informazioni pertinenti ai fini fiscali. 
+La tax registry viene utilizzata dalle autorità fiscali per monitorare e
+gestire l'adempimento fiscale dei contribuenti e per applicare le leggi fiscali.
+
+----------------------------------------
+
+train_person_1: sembrano info di anagrafica della persona + altre info sue.
