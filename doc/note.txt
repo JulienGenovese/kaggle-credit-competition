@@ -10,6 +10,16 @@ L - Unspecified Transform
 
 Come mai le info statiche in train person si ripetono? Evoluzione temporale forse
 
+Credit bureau:
+
+A credit bureau, also known as a credit reporting agency, is a company that collects and maintains financial information about individuals and businesses. They gather data from various sources, such as banks, credit card companies, lenders, and public records, to create comprehensive credit reports and credit scores for consumers.
+
+These reports typically include information about an individual's credit accounts, 
+payment history, outstanding debts, and any public records 
+such as bankruptcies or liens. Credit bureaus then use this information
+to generate credit scores, which are numerical representations of
+a person's creditworthiness. Lenders and other financial institutions use these
+reports and scores to assess the risk of lending money or extending credit to individuals and businesses. Some well-known credit bureaus include Equifax, Experian, and TransUnion.
 
 
 
