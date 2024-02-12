@@ -4,7 +4,7 @@ The goal of this [competition](https://www.kaggle.com/competitions/home-credit-c
 # Setup
 1. Create a folder `data` with the parquet files from the [Kaggle competition](https://www.kaggle.com/competitions/home-credit-credit-risk-model-stability/data?select=parquet_files) 
 2. Create a virtualenv `venv` (or whatever name you want but remember to add it to the gitignore!)
-3. Run `pip install -r /path/to/requirements.txt`
+3. Run `pip install -r requirements.txt`
 
 # Repo structure
 - Notebooks are stored in the `notebooks` folder, currently exploring the dataset.
