@@ -9,6 +9,21 @@ import random
 import gc
 
 def optuna_optimizer(trial, params_optuna, classifier, x_train, y_train, x_val, y_val):
+    """
+    Optimizer used by Optuna
+
+    Args:
+        trial : Optuna trial instance
+        params_optuna : Params to perform Optuna search on
+        classifier : Model
+        x_train : Training set
+        y_train : Training labels
+        x_val : Validation set
+        y_val : Validation labels
+
+    Returns:
+        score: AUC score from the trial
+    """
 
     p_grid = params_optuna(trial)
     if isinstance(classifier, catboost.core.CatBoostClassifier):
@@ -21,6 +36,25 @@ def optuna_optimizer(trial, params_optuna, classifier, x_train, y_train, x_val, 
     return score
 
 def nestedcv(x, y, classifier, cv_outer, cv_inner, p_grid, groups, n_iter=10):
+    """
+    Perform nested cross validation
+
+    Args:
+        x : Dataset
+        y : Target
+        classifier : Model to train
+        cv_outer : Sklearn outer CV loop, used to split in training and test set and assess performance evaluation after hyperparameters optimization
+        cv_inner : Sklearn inner CV loop, used to split the training in train and validation and perform hyperparameters tuning
+        p_grid : Params to perform Optuna search on
+        groups : Groups used by Sklearn to perform the StratifiedGroupKFold (WEEK_NUM)
+        n_iter : Optuna iterations to find best params
+
+    Returns:
+        clfs : Models create for each outer fold
+        oof_preds : Out of fold (OOF) predictions for each outer fold. They'll be used during inference to find best ensemble weights.
+        oof_targets : Ground truth for each outer fold
+    """
+
     clfs = []
     oof_preds = []
     oof_targets = []
@@ -64,6 +98,19 @@ def nestedcv(x, y, classifier, cv_outer, cv_inner, p_grid, groups, n_iter=10):
     return clfs, oof_preds, oof_targets
 
 def find_best_ensemble(current_ensemble, best_models, oof_files, oof_csv, truth):
+    """
+    Iterate over oof predictions and models, looking for the best weight that maximize the roc_auc_score.
+
+    Args:
+        current_ensemble (pandas Series): OOf predictions, initially from the best model found during training
+        best_models (list): List with the indeces of the best models found, initially only containing the best training model found
+        oof_files (list): List of OOF files
+        oof_csv (list): List of pandas DataFrames with OOF predictions
+        truth (pandas Series): Ground truth
+
+    Returns:
+        best_weight, best_model, best_score
+    """
     best_weight = ''
     best_score = 0
     best_model = ''
@@ -82,6 +129,9 @@ def find_best_ensemble(current_ensemble, best_models, oof_files, oof_csv, truth)
     return best_weight, best_model, best_score
 
 def random_seed(seed_value): 
+    """
+    Set seed
+    """
     np.random.seed(seed_value) 
     random.seed(seed_value) 
 
