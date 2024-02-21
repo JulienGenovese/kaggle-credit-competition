@@ -50,6 +50,13 @@ def extract_columns_tipe(df):
         features_num.remove("num_group2")
     return features_num, features_date, features_cat 
 
+def compute_date_distance_from_col(df, date_col_list, date_col_to_compare):
+    new_cols = []
+    for col in date_col_list:
+        df = df.with_columns((pl.col(date_col_to_compare) - pl.col(col)).dt.total_days().alias(f"{col}_days_from_appl"))
+        new_cols.append(f"{col}_days_from_appl")
+    return df, new_cols
+
 def aggregate_num_features_by_historic(df, col_list, col_sort):
     operation_to_apply = []
     for col in col_list:
